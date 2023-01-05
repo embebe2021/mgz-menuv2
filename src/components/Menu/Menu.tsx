@@ -1,29 +1,51 @@
-import { MenuContextProvider } from '../../MenuContextProvider';
+import React from 'react';
+import { ControlledMenu } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
 import { st, classes } from './Menu.st.css';
+import { MenuContextProvider, MenuContextProviderProps } from './MenuContextProvider';
 
-type MenuProps = {
-    direction?: 'horizontal' | 'vertical';
+export type MenuProps = {
     children?: React.ReactNode;
+    direction?: 'vertical' | 'horizontal' | undefined;
+    animate?: MenuContextProviderProps['animate'];
     className?: string;
-    style?: React.CSSProperties;
-};
+} & React.AllHTMLAttributes<HTMLUListElement>;
 
-const Menu = ({ direction = 'vertical', children, className, style, ...rest }: MenuProps) => {
+const Menu = ({
+    children,
+    direction = 'vertical',
+    className,
+    animate,
+    style,
+    ...rest
+}: MenuProps): JSX.Element => {
     return (
-        <MenuContextProvider direction={direction}>
-            <ul
-                className={st(
+        <MenuContextProvider animate={animate} direction={direction}>
+            <ControlledMenu
+                {...rest}
+                menuClassName={st(
                     classes.root,
-                    {
-                        direction: direction,
-                    },
+                    { isVertical: direction === 'vertical' },
                     className
                 )}
-                style={style}
-                {...rest}
+                menuStyle={style}
+                state="open"
+                align="start"
+                overflow="auto"
+                viewScroll="initial"
             >
-                {children ? children : null}
-            </ul>
+                {/* {children} */}
+                {React.Children.map(children, (child) =>
+                    // React.cloneElement(child as ReactElement<PropsWithChildren<MenuItemProps>>, {
+                    //     index,
+                    // })
+                    React.cloneElement(child, {
+                        direction,
+                        isSubMenu: false,
+                    })
+                )}
+            </ControlledMenu>
         </MenuContextProvider>
     );
 };
