@@ -1,0 +1,22 @@
+:global(*),
+:global(::before),
+:global(::after) {
+  box-sizing: border-box;
+}
+
+:global(html),
+:global(body) {
+  margin: 0;
+  padding: 0;
+}
+
+:global(html) {
+  background-color: #f5f5f5;
+  /* color: white; */
+}
+
+:global(a),
+:global(a:visited) {
+  color: inherit;
+  cursor: pointer;
+}

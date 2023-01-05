@@ -1,0 +1,56 @@
+@namespace "Menu";
+
+.effect {
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.133), 0 0.6px 2px rgba(0, 0, 0, 0.1);
+}
+
+.root {
+    -st-states: direction(enum(horizontal, vertical));
+    -st-mixin: effect;
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+}
+
+.root:direction(horizontal) {
+    max-width: 100vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.root:direction(vertical) {
+    width: 200px;
+    padding: 0.5rem 0;
+    flex-direction: column;
+}
+
+:global(.szh-menu__item--hover) {
+  background-color: #eaf7ff;
+}
+
+
+:global(.szh-menu__item--hover) {
+  background-color: #eaf7ff;
+}
+
+:global(.szh-menu__item) {
+  padding: 7px 7px 7px 16px;
+}
+
+:global(.szh-menu) {
+  -st-mixin: effect;
+}
+
+:global(.szh-menu__submenu > .szh-menu__item::after) {
+  content: '\203A';
+}
+
+@media only screen and (max-width: 680px) {
+    .root:direction(horizontal) {
+        min-width: 680px;
+    }
+}

@@ -1,0 +1,31 @@
+@namespace "SubMenu";
+
+.libSubMenu {
+    width: 200px;
+    border-radius: 6px;
+    animation-name: show;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+}
+
+.libSubMenu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.libSubMenu::-webkit-scrollbar-thumb {
+    background-color: #c1e4fe;
+    border-radius: 6px;
+}
+
+.libSubMenu::-webkit-scrollbar-thumb:hover {
+    background-color: #4eb7f5;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
