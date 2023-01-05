@@ -1,9 +1,7 @@
-.root {}
+@st-import [itemMixin, itemHover] from "../MenuItem/MenuItem.st.css";
 
-.representItem {
-
+.root {
+    -st-states: animate(enum(fadeIn, fadeInDown, fadeInUp, pulse));
 }
 
-.root :global(.szh-menu__submenu > .szh-menu__item::after) {
-    content: '';
-}
+.representItem {}

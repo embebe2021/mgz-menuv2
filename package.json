@@ -26,7 +26,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "style-loader": "^3.3.1",
-    "wix-style-react": "^10.65.0"
+    "wix-style-react": "^10.66.0"
   },
   "devDependencies": {
     "@stylable/core": "^4.10.3",

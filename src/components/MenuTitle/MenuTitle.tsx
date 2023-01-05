@@ -1,36 +1,36 @@
-// import ChevronRight from 'mgz-icons/ChevronRight';
 import { ChevronRight } from '@wix/wix-ui-icons-common';
-// import Text, { TextProps } from 'mgz-ui/Text';
-// import { BoxProps } from 'mgz-ui2/Box/types';
-// import Box from 'mgz-ui/Box';
 import { classes } from './MenuTitle.st.css';
 
 export type MenuTitleProps = {
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
-    label: string;
+    titleProps?: React.AllHTMLAttributes<HTMLSpanElement>;
+    children?: React.ReactNode;
     isHasArrow?: boolean;
     isHorizontal?: boolean;
-    // textSkin?: TextProps;
 };
-// } & BoxProps;
 
 const MenuTitle = ({
     prefix,
     suffix,
-    label,
+    titleProps,
     isHasArrow = false,
     isHorizontal = true,
-    // textSkin,
-    ...rest
+    children,
 }: MenuTitleProps): JSX.Element => (
     <>
         {prefix}
-        <div {...rest} gap="7px" flexGrow={1} className={classes.title}>
-            <span ellipsis={true}>{label}</span>
-            {!isHasArrow && suffix}
-        </div>
-        {isHasArrow && <ChevronRight style={isHorizontal ? { transform: 'rotate(90deg)' } : {}} />}
+        <span {...titleProps} className={classes.textTitle}>
+            {children}
+        </span>
+        {!isHasArrow && suffix}
+        {isHasArrow && (
+            <ChevronRight
+                width="25px"
+                height="25px"
+                style={isHorizontal ? { transform: 'rotate(90deg)' } : {}}
+            />
+        )}
     </>
 );
 

@@ -1,0 +1,21 @@
+.root {
+    -st-mixin: itemMixin;
+}
+
+.itemMixin {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 7px;
+    padding-right: 0;
+    padding: 7px 7px 7px 16px;
+    min-width: 200px;
+}
+
+.itemHover {
+    background-color: red;
+}
+
+/* .itemMixin:hover {
+    background-color: red;
+} */
