@@ -1,0 +1,19 @@
+@st-import [B20, B30] from "../../Foundation/stylable/colors.st.css";
+@st-import [defaultScrollBar] from "../../Foundation/stylable/default-scroll-bar.st.css";
+
+.root {}
+
+.root :global(.szh-menu__submenu) > :global(.szh-menu__item) {
+	align-items: center;
+}
+
+.libSubMenu {
+	-st-mixin: defaultScrollBar;
+	width: 200px;
+	border-radius: 6px;
+}
+
+.representItem {
+	align-items: center;
+	vertical-align: middle;
+}

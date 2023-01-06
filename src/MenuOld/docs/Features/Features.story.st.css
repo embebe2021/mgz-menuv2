@@ -1,0 +1,35 @@
+@st-import MenuItem from '../../MenuItem/MenuItem.st.css';
+@st-import [R40, D10] from "../../../Foundation/stylable/colors.st.css";
+
+.customMenuClass :global(.szh-menu__item--hover),
+.customMenuClass MenuItem::item:hover {
+	background-color: value(D10);
+}
+
+.customMenuItem1 {
+	background-color: red;
+}
+
+.customMenuItem2 {
+	background-color: gold;
+}
+
+.customMenuItem2:hover {
+	background-color: gray;
+}
+
+.customSubMenu1 {
+	background-color: beige;
+}
+
+.customMenuItem3 {
+	background-color: aquamarine;
+}
+
+.customMenuItem4 {
+	background-color: violet;
+}
+
+.customMenuItem5 {
+	background-color: palevioletred;
+}

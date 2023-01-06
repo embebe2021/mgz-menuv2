@@ -1,108 +1,128 @@
+/* @st-import [D80] from "../../Foundation/stylable/colors.st.css"; */
+@st-import [D80] from "../../../node_modules/wix-style-react/dist/src/Foundation/stylable/colors.st.css";
 @st-import [itemMixin, itemHover] from "../MenuItem/MenuItem.st.css";
 @st-import SubMenu from "../SubMenu/SubMenu.st.css";
 
+
 .menuMixin {
-    min-height: fit-content;
-    background-color: #FFFFFF;
+	min-height: fit-content;
+	background-color: value(D80);
+}
+
+.containerRef {
+	position: relative;
 }
 
 .root {
-    -st-states: isVertical, animate(enum(fadeIn, fadeInDown, fadeInUp, pulse));
-    -st-mixin: menuMixin;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 100vw;
+	-st-states: isVertical, animate(enum(fadeIn, fadeInDown, fadeInUp, pulse));
+	-st-mixin: menuMixin;
+	display: flex;
+	position: relative !important;
+	align-items: center;
+	vertical-align: middle;
+	flex-direction: row;
+	flex-wrap: wrap;
+	z-index: 103;
 }
 
 .root:isVertical {
-    flex-direction: column;
+	flex-direction: column;
+}
+
+.root :global(.szh-menu) {
+	z-index: 105;
+}
+
+.root :global(.szh-menu__submenu) {
+	width: fit-content;
+}
+
+.root :global(.szh-menu__submenu > .szh-menu__item) {
+	padding-right: 0;
 }
 
 .root :global(.szh-menu__submenu > .szh-menu__item::after),
 .root ~ SubMenu :global(.szh-menu__submenu > .szh-menu__item::after) {
-    content: '';
+	content: '';
 }
 
 .root :global(.szh-menu__item),
 .root ~ SubMenu :global(.szh-menu__item) {
-    -st-mixin: itemMixin;
+	-st-mixin: itemMixin;
 }
 
 .root :global(.szh-menu__item--hover),
 .root ~ SubMenu :global(.szh-menu__item--hover) {
-    -st-mixin: itemHover;
+	-st-mixin: itemHover;
 }
 
 .root ~ SubMenu:animate(fadeIn) {
-    animation: fadeIn .3s ease-in forwards;
+	animation: fadeIn .3s ease-in forwards;
 }
 
 .root ~ SubMenu:animate(fadeInDown) {
-    animation: fadeInDown .2s ease-in forwards;
+	animation: fadeInDown .2s ease-in forwards;
 }
 
 .root ~ SubMenu:animate(fadeInUp) {
-    animation: fadeInUp .2s ease-in forwards;
+	animation: fadeInUp .2s ease-in forwards;
 }
 
 .root ~ SubMenu:animate(pulse) {
-    animation: pulse .1s ease-in-out forwards;
+	animation: pulse .1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+	from {
+		opacity: 0;
+	}
 
-    to {
-        opacity: 1;
-    }
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -5%, 0);
-    }
+	from {
+		opacity: 0;
+		transform: translate3d(0, -5%, 0);
+	}
 
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 5%, 0);
-    }
+	from {
+		opacity: 0;
+		transform: translate3d(0, 5%, 0);
+	}
 
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 @keyframes pulse {
-    from {
-        transform: scale3d(1, 1, 1);
-    }
+	from {
+		transform: scale3d(1, 1, 1);
+	}
 
-    50% {
-        transform: scale3d(1.02, 1.02, 1.02);
-    }
+	50% {
+		transform: scale3d(1.02, 1.02, 1.02);
+	}
 
-    to {
-        transform: scale3d(1, 1, 1);
-    }
+	to {
+		transform: scale3d(1, 1, 1);
+	}
 }
 
 @media only screen and (max-width: 680px) {
-    .root {
-        min-width: 680px;
-        flex-wrap: wrap;
-    }
+	.root {
+		min-width: 680px;
+		flex-wrap: wrap;
+	}
 }

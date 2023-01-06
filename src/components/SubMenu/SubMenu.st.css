@@ -1,7 +1,9 @@
-@st-import [itemMixin, itemHover] from "../MenuItem/MenuItem.st.css";
+/* @st-import [defaultScrollBar] from "../../Foundation/stylable/default-scroll-bar.st.css"; */
+@st-import [defaultScrollBar] from "../../../node_modules/wix-style-react/dist/src/Foundation/stylable/default-scroll-bar.st.css";
 
 .root {
-    -st-states: animate(enum(fadeIn, fadeInDown, fadeInUp, pulse));
+	-st-states: animate(enum(fadeIn, fadeInDown, fadeInUp, pulse));
+	-st-mixin: defaultScrollBar;
 }
 
 .representItem {}

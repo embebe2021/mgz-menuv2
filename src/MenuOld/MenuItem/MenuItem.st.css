@@ -1,0 +1,26 @@
+@st-import [B50] from "../../Foundation/stylable/colors.st.css";
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	vertical-align: center;
+	gap: 7px;
+}
+
+.root {
+	position: relative;
+	list-style: none;
+	min-width: 200px;
+}
+
+.item {
+	-st-mixin: flex;
+	position: relative;
+	padding: 7px 7px 7px 16px;
+	cursor: pointer;
+}
+
+.item:hover {
+	background-color: value(B50);
+}

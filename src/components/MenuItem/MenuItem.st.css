@@ -1,21 +1,27 @@
+/* @st-import [B50] from "../../Foundation/stylable/colors.st.css"; */
+/* @st-import Text from "../../Text/Text.st.css"; */
+@st-import [B50] from "../../../node_modules/wix-style-react/dist/src/Foundation/stylable/colors.st.css";
+@st-import Text from "../../../node_modules/wix-style-react/dist/src/Text/Text.st.css";
+
 .root {
-    -st-mixin: itemMixin;
+	-st-mixin: itemMixin;
 }
 
 .itemMixin {
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: 7px;
-    padding-right: 0;
-    padding: 7px 7px 7px 16px;
-    min-width: 200px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	box-sizing: border-box;
+	gap: 7px;
+	padding-right: 0;
+	padding: 7px 7px 7px 16px;
+	min-width: 200px;
 }
 
 .itemHover {
-    background-color: red;
+	background-color: value(B50);
 }
 
-/* .itemMixin:hover {
-    background-color: red;
-} */
+.itemMixin Text {
+	flex-grow: 1;
+}
